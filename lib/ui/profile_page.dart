@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nft_marketplace_app/ui/detail_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -69,15 +70,18 @@ class _ProfilePageState extends State<ProfilePage> {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
-                TabBar(
-                  tabs: [
-                    Tab(text: 'Creations'),
-                    Tab(text: 'Collections'),
-                  ],
-                  labelColor: Colors.black,
-                  unselectedLabelColor: Colors.grey,
-                  indicatorColor: Colors.black,
-                  indicatorWeight: 1,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: TabBar(
+                    tabs: [
+                      Tab(text: 'Creations'),
+                      Tab(text: 'Collections'),
+                    ],
+                    labelColor: Colors.black,
+                    unselectedLabelColor: Colors.grey,
+                    indicatorColor: Colors.black,
+                    indicatorWeight: 1,
+                  ),
                 ),
                 Expanded(
                   child: TabBarView(children: [
@@ -87,10 +91,20 @@ class _ProfilePageState extends State<ProfilePage> {
                         crossAxisCount: 2,
                         children: List.generate(
                           8,
-                          (index) => Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: Colors.pink,
+                          (index) => GestureDetector(
+                            onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                    builder: (context) => DetailPage())),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                                color: Colors.pink,
+                              ),
                             ),
                           ),
                         ),
