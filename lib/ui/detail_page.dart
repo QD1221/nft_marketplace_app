@@ -37,7 +37,7 @@ class _DetailPageState extends State<DetailPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () => Navigator.of(context).pop(),
                               icon: Icon(Icons.keyboard_arrow_left),
                               color: Colors.white,
                             ),
@@ -66,27 +66,197 @@ class _DetailPageState extends State<DetailPage> {
                 ),
               ),
               Expanded(
-                flex: 11,
+                flex: 14,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Consume'),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      child: Text(
+                        'Consume',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                    ),
                     Row(
                       children: [
-                        CircleAvatar(),
-                        Column(
-                          children: [
-                            Text('Creator'),
-                            Text('Quang Tran'),
-                          ],
+                        Expanded(
+                          child: Row(
+                            children: [
+                              CircleAvatar(),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Creator',
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.grey),
+                                    ),
+                                    SizedBox(
+                                      height: 4,
+                                    ),
+                                    Text(
+                                      'Quang Tran',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        CircleAvatar(),
-                        Column(
-                          children: [
-                            Text('Current bid'),
-                            Text('10000 ETH'),
-                          ],
+                        Expanded(
+                          child: Row(
+                            children: [
+                              CircleAvatar(),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Current bid',
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.grey),
+                                    ),
+                                    SizedBox(
+                                      height: 4,
+                                    ),
+                                    Text(
+                                      '10000 ETH',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Text.rich(
+                      TextSpan(children: [
+                        TextSpan(
+                          text:
+                              'So happy to share my second collab with my dear father',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        TextSpan(
+                          text: '@Unknown',
+                          style: TextStyle(color: Colors.blue),
+                        ),
+                        TextSpan(
+                          text: 'I\'m so proud of his work and accomplishments',
+                          style: TextStyle(color: Colors.grey),
+                        )
+                      ]),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Expanded(
+                      child: DefaultTabController(
+                        length: 3,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 32,
+                              child: TabBar(
+                                  isScrollable: true,
+                                  labelColor: Colors.black,
+                                  indicatorWeight: 1.5,
+                                  unselectedLabelColor: Colors.grey,
+                                  indicatorColor: Colors.black,
+                                  tabs: [
+                                    Tab(
+                                      text: 'Info',
+                                    ),
+                                    Tab(
+                                      text: 'Birds',
+                                    ),
+                                    Tab(
+                                      text: 'History',
+                                    ),
+                                  ]),
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 8),
+                                child: TabBarView(children: [
+                                  Container(),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Center(
+                                        child: CircleAvatar(),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              'Bid placed by Jenny',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            SizedBox(
+                                              height: 4,
+                                            ),
+                                            Text(
+                                              'May 4, 2021 at 14:27',
+                                              style: TextStyle(
+                                                  color: Colors.grey,
+                                                  fontSize: 12),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Spacer(),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 24),
+                                        child: Text(
+                                          '13.35 ETH',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  Container(),
+                                ]),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Container(
+                      height: 48,
+                      decoration: BoxDecoration(
+                          color: Colors.pink[100],
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Center(
+                        child: Text(
+                          'Buy it now',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
                     )
                   ],
                 ),
